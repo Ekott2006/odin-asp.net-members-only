@@ -1,0 +1,32 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using WebApp.Model
+@model IndexModel
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    ViewData["Title"] = "Index Post page";
+}
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create" style="text-decoration: none">Create New</a>
+</p>
+<div class="container-fluid">
+    <div class="row gap-4 d-flex justify-content-evenly">
+        @foreach (Post post in Model.PostList)
+        {
+            <div class="card col-md-5 col-12 gap-4">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">@post.Title</h5>
+                <p class="card-text">@post.Body</p>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <footer class="h6 mb-0 mt-auto text-black" >@post.User.UserName
+                        </footer>
+                    }
+            </div>
+            </div>
+            }
+    </div>
+</div>

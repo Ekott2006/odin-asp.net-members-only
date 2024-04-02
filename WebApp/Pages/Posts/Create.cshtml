@@ -1,0 +1,30 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create Posts page";
+}
+<h1>Create Article</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="@Model.CreatePostRequest.Title" class="control-label"></label>
+                <input asp-for="@Model.CreatePostRequest.Title" class="form-control" />
+                <span asp-validation-for="@Model.CreatePostRequest.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.CreatePostRequest.Body" class="control-label"></label>
+                <input asp-for="@Model.CreatePostRequest.Body" class="form-control" />
+                <span asp-validation-for="@Model.CreatePostRequest.Body" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <div class="p-2"></div>
+                <input type="submit" value="Add Comment" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
